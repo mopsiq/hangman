@@ -6,7 +6,6 @@ export function addReturnButton(btn, mainBlock, callback) {
   callback(mainBlock);
 }
 
-
 export function renderingGame(mainBlock) {
   let mainDiv = document.createElement('div');
   let childrenDiv = document.createElement('div');
