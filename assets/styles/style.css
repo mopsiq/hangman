@@ -1,0 +1,146 @@
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  background: transparent;
+}
+
+audio {
+  display: none;
+}
+
+body {
+	background: linear-gradient( #bbb, transparent 1px), linear-gradient( 90deg, #bbb, transparent 1px);
+	background-size: 15px 15px;
+	background-position: center center;
+  margin: 0;
+
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 10px 5px;
+}
+
+.page {
+  height: 85vh;
+  overflow: hidden;
+}
+
+.screensaver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 1;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 20px 50px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+.btn__return {
+  position: absolute;
+  top: 60%;
+  font-size: 0;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background: url('/assets/svg/left-arrow.svg');
+
+  transition: padding .2s ease-in-out;
+}
+.btn__return:hover {
+  cursor: pointer;
+  padding: 20px;
+  transition: padding .3s ease-in-out;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.screensaver.hidden {
+  position: absolute;
+  top: 60%;
+}
+
+.screensaver.hidden .btn {
+  display: none;
+}
+
+
+.header__icon {
+  width: 24px;
+  height: 24px;
+  
+  margin: 0 15px;
+  transform: rotate(0);
+}
+.header__icon:hover {
+  cursor: pointer;
+  animation-name: test;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+}
+
+.header__btn.score {
+  fill: #000;
+}
+
+
+.game__window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+
+@keyframes test {
+  0% {
+    transform: rotate(45deg);
+  }
+
+  25% {
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    transform: rotate(0);
+  }
+
+  75% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes hiddenTo {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+  }
+  100% {
+      opacity: 0;
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+  }
+}
