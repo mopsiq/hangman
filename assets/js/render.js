@@ -1,27 +1,23 @@
-// export function addReturnButton(btn, mainBlock, callback) {
-//   btn.classList.add('hidden');
-//   let returnBtn = document.createElement('div');
-//   returnBtn.classList.add('btn__return');
-//   mainBlock.append(returnBtn)
-//   callback(mainBlock);
-// }
-
 export const objectWords = {
   collection0: {
     title: 'Животные',
-    words: ['слон', 'жираф']
+    words: ['слон', 'жираф', 'волк', 'заяц', 'медведь']
   },
   collection1: {
     title: 'Одежда',
-    words: ['шляпа', 'ботинок']
+    words: ['шляпа', 'ботинок', 'носки', 'трусы', 'майка']
   },
   collection2: {
     title: 'Электротехника',
-    words: ['стиральная машинка', 'компьютер']
+    words: ['компьютер', 'телевизор']
   },
-}
+  collection3: {
+    title: 'Виды спорта',
+    words: ['бокс', 'атлетика', 'плавание', 'футбол', 'теннис']
+  }
+};
 
- export const getRandomValue = (data) => {
+export const getRandomValue = (data) => {
   return Math.trunc(Math.random() * Object.keys(data).length)
 };
 
@@ -29,11 +25,12 @@ export const objectWords = {
 export function addWordsInBlock(block, word) {
   for(let i = 0; i < word.length; i++) {
     let span = document.createElement('span')
+    span.classList.add('line')
     span.classList.add('line__hidden')
     span.textContent = word[i];
     block.append(span);
-  }
-}
+  };
+};
 
 export function renderingGame(mainBlock) {
   let mainDiv = document.createElement('div');
@@ -41,7 +38,7 @@ export function renderingGame(mainBlock) {
   let lineInputDiv = document.createElement('div');
 
   mainDiv.classList.add('game__window');
-  mainDiv.append(lineInputDiv)
+  mainDiv.append(lineInputDiv);
   mainDiv.append(childrenDiv);
 
   childrenDiv.outerHTML = `
@@ -91,8 +88,8 @@ export function renderingGame(mainBlock) {
   </div>
   `;
   mainBlock.append(lineInputDiv, mainDiv);
-}
+};
 
 export function renderingStartPage(gameClass) {
   gameClass.remove();
-}
+};

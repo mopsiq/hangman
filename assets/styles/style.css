@@ -146,19 +146,17 @@ body {
   width: 500px;
   margin-top: 5%;
 }
-/* 
+
 .line {
   margin: 0 5px;
   position: relative;
-} */
+}
 
 .line__hidden {
-  margin: 0 5px;
-  position: relative;
   visibility: hidden;
 }
 
-.line__hidden:after {
+.line:after {
   display: block;
   visibility: visible;
   content: '';

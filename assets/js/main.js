@@ -16,9 +16,8 @@ startButton.addEventListener('click', () => {
   mainPage.append(buttonReturn)
   renderingGame(mainPage)
   initRandomWord(document.querySelector('.game__line'));
-  console.log(currentWordTheme)
-  console.log(currentTitle)
   console.log(currentWord)
+  document.querySelector('.game__theme').textContent = currentTitle
 });
 
 buttonReturn.addEventListener('click', () => {
@@ -30,14 +29,24 @@ buttonReturn.addEventListener('click', () => {
 
 mainPage.addEventListener('click', (e) => {
   if(e.target.classList.contains('letter')) {
-    console.log(e.target)
+    let word = e.target.textContent.toLowerCase()
+    console.log(word)
+    comparison(word, document.querySelector('.game__line'))
   }
 })
 
 function initRandomWord(block) {
   currentWordTheme = objectWords[`collection${getRandomValue(objectWords)}`];
   currentTitle = currentWordTheme.title;
-  currentWord = currentWordTheme.words[getRandomValue(currentWordTheme)];
+  currentWord = currentWordTheme.words[getRandomValue(currentWordTheme.words)];
 
   addWordsInBlock(block, currentWord);
+}
+
+function comparison(pressWord, block) {
+  for(let i = 0; i < block.children.length; i++) {
+    if(block.children[i].textContent === pressWord) {
+      block.children[i].classList.remove('line__hidden')
+    }
+  }
 }
