@@ -51,7 +51,7 @@ body {
 }
 .btn__return {
   position: absolute;
-  top: 60%;
+  top: 80%;
   font-size: 0;
   padding: 10px;
   border: 2px solid #000;
@@ -71,8 +71,8 @@ body {
 }
 
 .screensaver.hidden {
-  position: absolute;
-  top: 60%;
+  /* position: absolute;
+  top: 60%; */
 }
 
 .screensaver.hidden .btn {
@@ -106,8 +106,60 @@ body {
   justify-content: center;
   align-items: center;
   align-content: center;
+  flex-wrap: wrap;
 }
 
+.game__line {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
+  width: 100%;
+  margin-top: 35%;
+
+  text-align: center;
+}
+
+.game__letters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 500px;
+  margin-top: 10%;
+}
+
+.line {
+  margin: 0 5px;
+  position: relative;
+}
+
+.line__hidden {
+  visibility: hidden;
+}
+
+.line:after {
+  display: block;
+  visibility: visible;
+  content: '';
+  width: 13px;
+  height: 3px;
+  background: #000;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  z-index: 50;
+}
+
+
+.letter {
+  padding: 5px;
+  margin: 0 0.5rem 2rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
 
 
 @keyframes test {
