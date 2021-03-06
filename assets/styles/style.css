@@ -115,9 +115,28 @@ body {
   align-items: flex-end;
   align-content: flex-end;
   width: 100%;
-  margin-top: 35%;
 
   text-align: center;
+}
+
+.game__theme {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  width: 100%;
+
+  text-align: center;
+}
+
+.game__inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  margin-top: 25%;
 }
 
 .game__letters {
@@ -125,19 +144,21 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   width: 500px;
-  margin-top: 10%;
+  margin-top: 5%;
 }
-
+/* 
 .line {
   margin: 0 5px;
   position: relative;
-}
+} */
 
 .line__hidden {
+  margin: 0 5px;
+  position: relative;
   visibility: hidden;
 }
 
-.line:after {
+.line__hidden:after {
   display: block;
   visibility: visible;
   content: '';

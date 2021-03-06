@@ -6,7 +6,7 @@
 //   callback(mainBlock);
 // }
 
-let objectWords = {
+export const objectWords = {
   collection0: {
     title: 'Животные',
     words: ['слон', 'жираф']
@@ -21,22 +21,19 @@ let objectWords = {
   },
 }
 
-function getWordInPage(obj, block) {
-  const randomValue = (data) => {
-    return Math.trunc(Math.random() * Object.keys(data).length)
-  };
-  let currentTheme = obj[`collection${randomValue(obj)}`];
-  let currentTitle = currentTheme.title;
-  let currentListWords = currentTheme.words;
-  let randomWord = currentListWords[randomValue(currentListWords)]
-  console.log(randomWord)
-}
+ export const getRandomValue = (data) => {
+  return Math.trunc(Math.random() * Object.keys(data).length)
+};
 
-function getRandomValue(array) {
-  
-}
 
-getWordInPage(objectWords)
+export function addWordsInBlock(block, word) {
+  for(let i = 0; i < word.length; i++) {
+    let span = document.createElement('span')
+    span.classList.add('line__hidden')
+    span.textContent = word[i];
+    block.append(span);
+  }
+}
 
 export function renderingGame(mainBlock) {
   let mainDiv = document.createElement('div');
@@ -85,21 +82,12 @@ export function renderingGame(mainBlock) {
   </div>
   `;
   lineInputDiv.outerHTML = `
-  <div class="game__line">
-  <span class="line line__hidden">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
-  <span class="line">a</span>
+  <div class="game__inner">
+    <div class="game__theme">
+      <span>text</span>
+    </div>
+    <div class="game__line">
+    </div>
   </div>
   `;
   mainBlock.append(lineInputDiv, mainDiv);
