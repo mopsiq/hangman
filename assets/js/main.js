@@ -9,15 +9,16 @@ const buttonReturn = document.createElement('div');
 let currentWordTheme = null;
 let currentTitle = null;
 let currentWord = null;
+let fallCount = 0;
+
 
 startButton.addEventListener('click', () => {
   startMenu.classList.add('hidden');
   buttonReturn.classList.add('btn__return')
   mainPage.append(buttonReturn)
   renderingGame(mainPage)
-  initRandomWord(document.querySelector('.game__line'));
+  initRandomWord( document.querySelector('.game__line'), document.querySelector('.game__theme') );
   console.log(currentWord)
-  document.querySelector('.game__theme').textContent = currentTitle
 });
 
 buttonReturn.addEventListener('click', () => {
@@ -29,24 +30,37 @@ buttonReturn.addEventListener('click', () => {
 
 mainPage.addEventListener('click', (e) => {
   if(e.target.classList.contains('letter')) {
-    let word = e.target.textContent.toLowerCase()
-    console.log(word)
-    comparison(word, document.querySelector('.game__line'))
+    let wordBlock = e.target;
+    console.log(wordBlock)
+    comparison(wordBlock, document.querySelector('.game__line'), fallCount)
+    console.log(fallCount)
   }
 })
 
-function initRandomWord(block) {
+function initRandomWord(blockWords, blockTitle) {
   currentWordTheme = objectWords[`collection${getRandomValue(objectWords)}`];
   currentTitle = currentWordTheme.title;
   currentWord = currentWordTheme.words[getRandomValue(currentWordTheme.words)];
-
-  addWordsInBlock(block, currentWord);
+  blockTitle.textContent = currentTitle;
+  addWordsInBlock(blockWords, currentWord);
 }
 
-function comparison(pressWord, block) {
-  for(let i = 0; i < block.children.length; i++) {
-    if(block.children[i].textContent === pressWord) {
-      block.children[i].classList.remove('line__hidden')
-    }
+function comparison(pressBlock, block, count) {
+  let pressWord = pressBlock.textContent.toLowerCase();
+  let arrayWords = [];
+  
+
+  for(let child of block.children) {
+    arrayWords.push(child.textContent)
+
+    if(child.textContent === pressWord) {
+      child.classList.remove('line__hidden')
+      console.log(child.textContent)
+    } 
   }
+  if(!arrayWords.includes(pressWord)) {
+    pressBlock.classList.add('letter--wrong')
+    fallCount += 1;
+  }
+
 }
