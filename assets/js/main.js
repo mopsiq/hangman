@@ -6,9 +6,9 @@ const mainPage = document.querySelector('.page');
 
 const buttonReturn = document.createElement('div');
 
-let currentWordTheme = null;
-let currentTitle = null;
-let currentWord = null;
+let currentWordTheme,
+    currentTitle,
+    currentWord = null;
 let fallCount = 0;
 
 
@@ -31,7 +31,6 @@ buttonReturn.addEventListener('click', () => {
 mainPage.addEventListener('click', (e) => {
   if(e.target.classList.contains('letter')) {
     let wordBlock = e.target;
-    console.log(wordBlock)
     comparison(wordBlock, document.querySelector('.game__line'), fallCount)
     console.log(fallCount)
   }
@@ -54,10 +53,12 @@ function comparison(pressBlock, block, count) {
     arrayWords.push(child.textContent)
 
     if(child.textContent === pressWord) {
+      pressBlock.classList.add('letter--truth')
       child.classList.remove('line__hidden')
       console.log(child.textContent)
     } 
   }
+  
   if(!arrayWords.includes(pressWord)) {
     pressBlock.classList.add('letter--wrong')
     fallCount += 1;

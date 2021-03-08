@@ -70,11 +70,6 @@ body {
   cursor: pointer;
 }
 
-.screensaver.hidden {
-  /* position: absolute;
-  top: 60%; */
-}
-
 .screensaver.hidden .btn {
   display: none;
 }
@@ -89,7 +84,7 @@ body {
 }
 .header__icon:hover {
   cursor: pointer;
-  animation-name: test;
+  animation-name: vibrate;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
@@ -178,13 +173,26 @@ body {
   border-radius: 5px;
 
   cursor: pointer;
+  transition: background .5s ease, transform .2s ease;
+
+}
+
+.letter:hover {
+  transform: scale(1.2);
+}
+
+.letter--truth {
+  background-color: #0f881d;
 }
 
 .letter--wrong {
   transition: all .4s linear;
   position: relative;
-}
 
+  animation-name: vibrate;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
 .letter--wrong:before,
 .letter--wrong:after {
   content: '';
@@ -192,11 +200,11 @@ body {
   position: absolute;
 
   animation-name: wrong;
-  animation-duration: 1s;
+  animation-duration: 0.4s;
   animation-timing-function: ease-in-out;
 }
 .letter--wrong:before {
-  bottom: -20%;
+  top: -25%;
   left: 40%;
   z-index: 9;
   width: 4px;
@@ -209,7 +217,7 @@ body {
   background-color: red;
   position: absolute;
   top: -25%;
-  right: 40%;
+  left: 40%;
   z-index: 9;
   width: 4px;
   height: 140%;
@@ -220,15 +228,42 @@ body {
 
 @keyframes wrong {
   0% {
-    height: 90%;
+    height: 14%;
+    top: 25%;
+    left: 50%;
   }
-
+  10% {
+    height: 28%;
+  }
+  20% {
+    height: 42%;
+  }
+  30% {
+    height: 56%;
+  }
+  40% {
+    height: 70%;
+  }
+  50% {
+    height: 84%;
+  }
+  60% {
+    height: 98%;
+  }
+  70% {
+    height: 112%;
+  }
+  80% {
+    height: 126%;
+  }
   100% {
+    top: -25%;
+    left: 40%;
     height: 140%;
   }
 }
 
-@keyframes test {
+@keyframes vibrate {
   0% {
     transform: rotate(45deg);
   }
@@ -262,3 +297,4 @@ body {
       transform: translateX(0);
   }
 }
+
