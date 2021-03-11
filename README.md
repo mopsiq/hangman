@@ -1,1 +1,2 @@
-# hangman
+# Warning! 
+The project is under active development.

@@ -9,6 +9,7 @@ const buttonReturn = document.createElement('div');
 let currentWordTheme,
     currentTitle,
     currentWord = null;
+
 let fallCount = 0;
 
 
@@ -31,7 +32,7 @@ buttonReturn.addEventListener('click', () => {
 mainPage.addEventListener('click', (e) => {
   if(e.target.classList.contains('letter')) {
     let wordBlock = e.target;
-    comparison(wordBlock, document.querySelector('.game__line'), fallCount)
+    comparison(wordBlock, document.querySelector('.game__line'))
     console.log(fallCount)
   }
 })
@@ -46,22 +47,19 @@ function initRandomWord(blockWords, blockTitle) {
 
 function comparison(pressBlock, block, count) {
   let pressWord = pressBlock.textContent.toLowerCase();
-  let arrayWords = [];
-  
+  let currentWordInArray = currentWord.split('');
+  let currentCount = count;
 
   for(let child of block.children) {
-    arrayWords.push(child.textContent)
-
     if(child.textContent === pressWord) {
       pressBlock.classList.add('letter--truth')
       child.classList.remove('line__hidden')
-      console.log(child.textContent)
     } 
   }
-  
-  if(!arrayWords.includes(pressWord)) {
+
+  if(!currentWordInArray.includes(pressWord)) {
     pressBlock.classList.add('letter--wrong')
-    fallCount += 1;
+    fallCount ++;
   }
 
-}
+};
