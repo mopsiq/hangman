@@ -33,11 +33,14 @@ export function addWordsInBlock(block, word) {
 };
 
 export function renderingGame(mainBlock) {
+  let canvas = document.createElement('canvas');
   let mainDiv = document.createElement('div');
   let childrenDiv = document.createElement('div');
   let lineInputDiv = document.createElement('div');
 
+  canvas.classList.add('game__canvas');
   mainDiv.classList.add('game__window');
+  mainDiv.append(canvas)
   mainDiv.append(lineInputDiv);
   mainDiv.append(childrenDiv);
 
