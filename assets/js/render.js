@@ -22,11 +22,11 @@ export const getRandomValue = (data) => {
 };
 
 
-export function addWordsInBlock(block, word) {
+export function addWordsInBlock(block, word, className) {
   for(let i = 0; i < word.length; i++) {
     let span = document.createElement('span')
     span.classList.add('line')
-    span.classList.add('line__hidden')
+    span.classList.add(className)
     span.textContent = word[i];
     block.append(span);
   };

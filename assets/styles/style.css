@@ -15,7 +15,7 @@ body {
 	background-size: 15px 15px;
 	background-position: center center;
   margin: 0;
-
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 *,
@@ -112,6 +112,7 @@ body {
   width: 100%;
 
   text-align: center;
+  text-transform: uppercase;
 }
 
 .game__theme {
@@ -145,6 +146,28 @@ body {
   height: 300px;
 }
 
+.game__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.game__stats {
+  margin: 1.5rem 0;
+}
+
+.game__guessed {
+  border: 1px solid #000;
+  padding: 0.3rem;
+  margin: 0 0.3rem;
+  background-color: rgb(68, 170, 68);
+}
+.game__wrongess {
+  border: 1px solid #000;
+  padding: 0.3rem;
+  margin: 0 0.3rem;
+  background-color: rgb(179, 10, 10);
+}
+
 .line {
   margin: 0 5px;
   position: relative;
@@ -152,6 +175,10 @@ body {
 
 .line__hidden {
   visibility: hidden;
+}
+
+.line__truthy {
+  color: blue;
 }
 
 .line:after {
@@ -227,6 +254,17 @@ body {
 
   transform: rotate(40deg);
 }
+
+
+.wrapper {
+  position: absolute;
+  top: 35%;
+  left: 49%;
+  right: 50%;
+  width: 100%;
+  font-size: 42px;
+}
+
 
 
 @keyframes wrong {
